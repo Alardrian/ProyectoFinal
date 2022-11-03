@@ -37,9 +37,16 @@
                    [2,2,2],
                    [3,3,3]];
 
-        echo $cuadrado->sumaPrimeraFila($arrays);
-        echo '<br>';
-        echo $cuadrado->analizarCuadradoMagico($arrays);
+        try {
+            echo $cuadrado->analizarCuadradoMagico($arrays);
+            echo $cuadrado->pintarCuadradoMagico($arrays);
+        }catch(Exception $e){
+            echo $e->getMessage();
+        }
+
+        //echo $cuadrado->sumaPrimeraFila($arrays);
+        //echo '<br>';
+        
         echo '<br>';
         //print_r($cuadrado->sumarFilas($arrays));
         echo '<br>';
@@ -49,13 +56,11 @@
         echo '<br>';
         //echo $cuadrado->sumarDiagonal2($arrays);
         echo '<br>';
-        echo $cuadrado->pintarCuadradoMagico($arrays);
-        echo '<br>';
         //echo $cuadrado->suma1Fila;
         echo '<br>';
-        print_r($cuadrado->compararFilas($arrays));
+        //print_r($cuadrado->compararFilas($arrays));
         echo '<br>';
-        print_r($cuadrado->compararColumnas($arrays));
+        //print_r($cuadrado->compararColumnas($arrays));
         echo '<br>';
         //echo $cuadrado->diagonal1;
         echo '<br>';

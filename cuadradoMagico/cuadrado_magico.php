@@ -8,6 +8,13 @@
         public $esMagico;
 
         function analizarCuadradoMagico($array){
+            for ($i=0; $i < count($array); $i++) { 
+                for ($j=0; $j < count($array); $j++) { 
+                    if (!is_numeric($array[$i][$j])){
+                        throw new Exception("No puedes poner letras");
+                    }
+                }
+            }
             $this->suma1Fila = $this->sumaPrimeraFila($array);
             $this->filasDistintas = $this->compararFilas($array);
             $this->columnasDistintas = $this->compararColumnas($array);
@@ -44,7 +51,8 @@
             $resultado = [];
             for ($i=0; $i < count($array); $i++) { 
                 if (array_sum($array[$i]) != $this->suma1Fila){
-                    $resultado[$i] = $i;
+                    //$resultado[$i] = $i +1;
+                    array_push($resultado,$i+1);
                 }
             }
             return $resultado;
@@ -69,7 +77,7 @@
                     $resultado[$i] += $array[$j][$i];
                 }
                 if ($resultado[$i] != $this->suma1Fila){
-                    $columnasDistintas[$i] = $i;
+                    $columnasDistintas[$i] = $i +1;
                 }
             }
             return $columnasDistintas;
@@ -133,6 +141,30 @@
             }
             else{
                 echo '<p style=color:red> NO ES UN CUADRADO MAGICO</p>';
+                echo '<br>';
+                echo 'Respecto a la primera fila que es '. $this->suma1Fila;
+                echo '<br>';
+                echo '<br>';
+                echo 'Las filas diferentes a '. $this->suma1Fila .' son:';
+                echo '<br>';
+                echo '<br>';
+                print_r($this->filasDistintas);
+                echo '<br>';
+                echo '<br>';
+                echo 'Las columnas diferentes a '. $this->suma1Fila .' son:';
+                echo '<br>';
+                echo '<br>';
+                print_r($this->columnasDistintas);
+                echo '<br>';
+                echo '<br>';
+                echo 'Las dia diferentes a '. $this->suma1Fila.' son:';
+                echo '<br>';
+                echo '<br>';
+                echo $this->diagonal1;
+                echo '<br>';
+                echo '<br>';
+                echo $this->diagonal2;
+
             }
         }
     }
