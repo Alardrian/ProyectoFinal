@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuadrado magico</title>
     <style>
+    body{
+        margin-left: 40%;
+        margin-top: 5%;
+    }
     table, td, tr{
         border: 1px solid rgb(0, 0, 0);
         border-collapse: collapse;

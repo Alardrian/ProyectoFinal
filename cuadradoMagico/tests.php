@@ -1,3 +1,8 @@
+<style>
+    p{
+        color:blue;
+    }
+</style>
 <?php
 
 ini_set('display_errors', 'On');
@@ -127,43 +132,43 @@ function test($testEjecutar){
 }
 
 echo "<br>";
-echo "<br><p style=color:blue>Test es magico</p><br>";
+echo "<br><p>Test es magico</p><br>";
 test("test_esMagico");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test sumar primera fila</p><br>";
+echo "<br><p>Test sumar primera fila</p><br>";
 test("test_sumaPrimeraFila");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test sumar filas</p><br>";
+echo "<br><p>Test sumar filas</p><br>";
 test("test_sumarFilas");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test comparar filas</p><br>";
+echo "<br><p>Test comparar filas</p><br>";
 test("test_compararFilas");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test sumar columnas</p><br>";
+echo "<br><p>Test sumar columnas</p><br>";
 test("test_sumarColumnas");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test comparar columnas</p><br>";
+echo "<br><p>Test comparar columnas</p><br>";
 test("test_compararColumnas");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test sumar primera diagonal</p><br>";
+echo "<br><p>Test sumar primera diagonal</p><br>";
 test("test_sumarDiagonal1");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test comparar primera diagonal</p><br>";
+echo "<br><p>Test comparar primera diagonal</p><br>";
 test("test_compararDiagonal1");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test sumar segunda diagonal</p><br>";
+echo "<br><p>Test sumar segunda diagonal</p><br>";
 test("test_sumarDiagonal2");
 echo "<br>";
 
-echo "<br><p style=color:blue>Test comparar segunda diagonal</p><br>";
+echo "<br><p>Test comparar segunda diagonal</p><br>";
 test("test_compararDiagonal2");
 echo "<br>";
 

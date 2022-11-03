@@ -1,3 +1,11 @@
+<style>
+    p.correcto{
+        color: green;
+    }
+    p.incorrecto{
+        color: red;
+    }
+</style>
 <?php
     class cuadrado{
         public $suma1Fila;
@@ -137,10 +145,10 @@
             echo'</table>';
 
             if ($this->esMagico){
-                echo '<p style=color:green>ES UN CUADRADO MAGICO</p>';
+                echo '<p class=correcto>ES UN CUADRADO MAGICO</p>';
             }
             else{
-                echo '<p style=color:red> NO ES UN CUADRADO MAGICO</p>';
+                echo '<p class=incorrecto> NO ES UN CUADRADO MAGICO</p>';
                 echo '<br>';
                 echo 'Respecto a la primera fila que es '. $this->suma1Fila;
                 echo '<br>';
