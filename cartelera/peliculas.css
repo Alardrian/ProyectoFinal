@@ -1,0 +1,58 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    background-image: url('img/fondo7.jpg');
+    background-size: cover;
+}
+
+div.pelicula{
+    background-image: url('img/fondo8.jpg');
+    background-size: cover;
+    color: white;
+    position: relative;
+    margin: 15px;
+    border: 2px solid black;
+    width: 50%;
+    top: 10vh;
+    left: 20%;
+}
+a:visited{
+    color: rgba(124, 216, 3, 0.719);
+}
+h2{
+    position: relative;
+    left: 20px;
+}
+p.votos{
+    position: relative;
+    top: -25px;
+    left: 80%;
+}
+h3.sinopsisTitulo{
+    position: relative;
+    left: 25%;
+    bottom: 100px;
+}
+p.sinopsisTexto{
+    position: relative;
+    left: 25%;
+    bottom: 90px;
+}
+p.duracion
+{
+    position: relative;
+    left: 2%;
+    bottom: 30px;
+}
+a{
+    position: relative;
+    left:80%;
+    bottom: 55px;
+}
+img{
+    width: 20%;
+    height: 20%;
+    padding-left: 2%;
+}

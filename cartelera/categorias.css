@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-image: url('img/fondo2.jpg');
+    background-size: cover;
+  }
+ul{
+    border: 2px dashed white;
+    border-collapse: collapse;
+    padding: 5px;
+}
+#contenedorCategorias{
+    width: 500px;
+    height: 100px;
+    margin: auto;
+    margin-top: 5%;
+}
+li{
+    text-align: center;
+    list-style-type: none;
+    color: white;
+    font-size: 20px;
+}
+img{
+    height: 300px;
+    width: 100%;
+}
+h1{
+    color: white;
+    text-align: center;
+    font-size: 100px;
+}
+
