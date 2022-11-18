@@ -10,11 +10,20 @@
 <body> 
 
 <div class="pelicula">
+
 <h2>Titulo</h2>             <p class="votos">Votos: 0</p>
 <img src="img/peniwais.jpg" alt="">   <h3 class="sinopsisTitulo">Sinopsis</h3>    
 <p class="sinopsisTexto">Aqui ira la sipasdiasdasd  gasd</p>
-<p class="duracion">Duración: minutos</p>           <a href="">Ver ficha</a>
+<p class="duracion">Duración: minutos</p>           <a href="ficha.php">Ver ficha</a>
 
+</div>
+
+<div class="pelicula">
+    
+<h2>Titulo</h2>             <p class="votos">Votos: 0</p>
+<img src="img/jason.jpeg" alt="">   <h3 class="sinopsisTitulo">Sinopsis</h3>    
+<p class="sinopsisTexto">Aqui ira la sipasdiasdasd  gasd</p>
+<p class="duracion">Duración: minutos</p>           <a href="ficha.php">Ver ficha</a>
 
 </div>
     

@@ -12,11 +12,12 @@ div.pelicula{
     background-size: cover;
     color: white;
     position: relative;
-    margin: 15px;
+    margin: 2%;
     border: 2px solid black;
     width: 50%;
     top: 10vh;
     left: 20%;
+    margin-bottom: 5%;
 }
 a:visited{
     color: rgba(124, 216, 3, 0.719);
