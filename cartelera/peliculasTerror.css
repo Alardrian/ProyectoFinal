@@ -15,6 +15,7 @@ div.pelicula{
     margin: 2%;
     border: 2px solid black;
     width: 50%;
+    height: 250px;
     top: 10vh;
     left: 20%;
     margin-bottom: 5%;
@@ -36,6 +37,11 @@ h3.sinopsisTitulo{
     left: 25%;
     bottom: 100px;
 }
+div.divSinopsisTexto{
+    position: relative;
+    width: 650px;
+    left: 7%;
+}
 p.sinopsisTexto{
     position: relative;
     left: 25%;
@@ -45,15 +51,17 @@ p.duracion
 {
     position: relative;
     left: 2%;
-    bottom: 30px;
+    bottom: 90px;
+    font-size: 20px;
 }
 a{
     position: relative;
     left:80%;
-    bottom: 55px;
+    bottom: 120px;
+    font-size: 20px;
 }
 img{
     width: 20%;
-    height: 20%;
+    height: 50%;
     padding-left: 2%;
 }
