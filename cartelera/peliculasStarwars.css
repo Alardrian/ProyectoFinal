@@ -1,0 +1,65 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+body {
+    background-image: url('img/fondostarwars2.jpg');
+    background-size: cover;
+}
+div.pelicula{
+    background-color: rgba(255, 255, 255, 0.719);
+    color: rgb(0, 0, 0);
+    position: relative;
+    margin: 2%;
+    border: 2px solid black;
+    width: 50%;
+    height: 250px;
+    top: 10vh;
+    left: 20%;
+    margin-bottom: 5%;
+}
+a:visited{
+    color: rgba(26, 1, 165, 0.719);
+}
+h2{
+    position: relative;
+    left: 20px;
+}
+p.votos{
+    position: relative;
+    top: -25px;
+    left: 80%;
+}
+h3.sinopsisTitulo{
+    position: relative;
+    left: 25%;
+    bottom: 100px;
+}
+div.divSinopsisTexto{
+    position: relative;
+    width: 650px;
+    left: 7%;
+}
+p.sinopsisTexto{
+    position: relative;
+    left: 25%;
+    bottom: 90px;
+}
+p.duracion
+{
+    position: relative;
+    left: 2%;
+    bottom: 90px;
+    font-size: 20px;
+}
+a{
+    position: relative;
+    left:80%;
+    bottom: 120px;
+    font-size: 20px;
+}
+img{
+    width: 20%;
+    height: 50%;
+    padding-left: 2%;
+}

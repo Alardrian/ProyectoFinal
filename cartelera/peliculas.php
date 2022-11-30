@@ -5,7 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peliculas</title>
-    <link rel="stylesheet" href="peliculasTerror.css">
+    
+    <?php
+    if ($_GET["categoria"] == "terror") {
+        $cssFile = "peliculasTerror.css";
+        echo "<link rel='stylesheet' href='" . $cssFile . "'>";
+    }
+    else if ($_GET["categoria"] == "starwars"){
+        $cssFile = "peliculasStarwars.css";
+        echo "<link rel='stylesheet' href='" . $cssFile . "'>";
+    }
+    ?>
 </head>
 <body>
 
@@ -18,7 +28,7 @@
         animi voluptatibus minus. Molestias, tempore et voluptate eveniet minus dicta blanditiis impedit rem totam sapiente 
         corporis iste unde placeat modi odio quae ipsum eos? Delectus quibusdam voluptatibus aspernatur optio?</p>
 </div>
-<p class="duracion">Duración: minutos</p>           <a href="ficha.php">Ver ficha</a>
+<p class="duracion">Duración: minutos</p>           <a href="ficha.php?pelicula=peniwais">Ver ficha</a>
 
 </div>
 
@@ -32,7 +42,7 @@
         corporis iste unde placeat modi odio quae ipsum eos? Delectus quibusdam voluptatibus aspernatur optio?</p>
 </div>
 
-<p class="duracion">Duración: minutos</p>           <a href="ficha.php">Ver ficha</a>
+<p class="duracion">Duración: minutos</p>           <a href="ficha.php?pelicula=jason">Ver ficha</a>
 
 </div>
 
@@ -51,8 +61,14 @@
         echo "Conexión OK"."<br>";
 
         while ( $registro = mysqli_fetch_assoc($resultado)){
-            echo $registro['titulo']."<br>";
-            
+            $id = $registro['ID'];
+            $titulo = $registro['titulo'];
+            $anyo = $registro['año'];
+            $duracion = $registro['duracion'];
+            $sinopsis = $registro['sinopsis'];
+            $imagen = $registro['imagen'];
+            $votos = $registro['votos'];
+            $idCategoria = $registro['id_categoria'];
         }
     }
 ?>
