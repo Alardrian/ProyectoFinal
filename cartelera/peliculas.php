@@ -4,20 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <title>Peliculas</title>
     
     <?php
-    if ($_GET["categoria"] == "terror") {
+    if ($_GET["id_categoria"] == "1") {
         $cssFile = "peliculasTerror.css";
         echo "<link rel='stylesheet' href='" . $cssFile . "'>";
     }
-    else if ($_GET["categoria"] == "starwars"){
+    else if ($_GET["id_categoria"] == "2"){
         $cssFile = "peliculasStarwars.css";
         echo "<link rel='stylesheet' href='" . $cssFile . "'>";
     }
     ?>
 </head>
 <body>
+<h1><a class="atras" href="categorias.php"><span class="material-symbols-outlined">cottage</span></a></h1>
 
 <div class="pelicula">
 
@@ -28,7 +30,7 @@
         animi voluptatibus minus. Molestias, tempore et voluptate eveniet minus dicta blanditiis impedit rem totam sapiente 
         corporis iste unde placeat modi odio quae ipsum eos? Delectus quibusdam voluptatibus aspernatur optio?</p>
 </div>
-<p class="duracion">Duración: minutos</p>           <a href="ficha.php?pelicula=peniwais">Ver ficha</a>
+<p class="duracion">Duración: minutos</p>           <a class="link" href="ficha.php?pelicula=peniwais">Ver ficha</a>
 
 </div>
 
@@ -42,14 +44,19 @@
         corporis iste unde placeat modi odio quae ipsum eos? Delectus quibusdam voluptatibus aspernatur optio?</p>
 </div>
 
-<p class="duracion">Duración: minutos</p>           <a href="ficha.php?pelicula=jason">Ver ficha</a>
+<p class="duracion">Duración: minutos</p>           <a class="link" href="ficha.php?pelicula=jason">Ver ficha</a>
 
 </div>
 
 <?php
     $conexion = mysqli_connect('localhost','root','12345');
+    if (mysqli_connect_errno()){
+        echo "Error al conectar a MySQL: " . mysqli_connect_error();
+    }
     mysqli_select_db($conexion, 'peliculas');
-    $consulta = "SELECT * FROM T_Peliculas;";
+    $id_categoria = $_GET['id_categoria'];
+    $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
+    $consulta = "SELECT * FROM T_Peliculas WHERE id_categoria='" . $sanitized_categoria_id."';";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){
@@ -58,17 +65,22 @@
         die($mensaje);
     }
     else{
-        echo "Conexión OK"."<br>";
+        if(($resultado->num_rows) > 0){
 
-        while ( $registro = mysqli_fetch_assoc($resultado)){
-            $id = $registro['ID'];
-            $titulo = $registro['titulo'];
-            $anyo = $registro['año'];
-            $duracion = $registro['duracion'];
-            $sinopsis = $registro['sinopsis'];
-            $imagen = $registro['imagen'];
-            $votos = $registro['votos'];
-            $idCategoria = $registro['id_categoria'];
+            while ( $registro = mysqli_fetch_assoc($resultado)){
+
+                $id = $registro['ID'];
+                $titulo = $registro['titulo'];
+                $anyo = $registro['año'];
+                $duracion = $registro['duracion'];
+                $sinopsis = $registro['sinopsis'];
+                $imagen = $registro['imagen'];
+                $votos = $registro['votos'];
+                $idCategoria = $registro['id_categoria'];
+
+                $pelicula = [$id, $titulo, $anyo, $duracion, $sinopsis, $imagen, $votos, $idCategoria];
+                
+            }
         }
     }
 ?>

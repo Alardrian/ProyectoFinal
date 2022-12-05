@@ -6,6 +6,13 @@ body {
     background-image: url('img/fondostarwars2.jpg');
     background-size: cover;
 }
+
+h1{
+    color: red;
+    font-size: 50px;
+    padding-left: 2%;
+}
+
 div.pelicula{
     background-color: rgba(255, 255, 255, 0.719);
     color: rgb(0, 0, 0);
@@ -17,9 +24,6 @@ div.pelicula{
     top: 10vh;
     left: 20%;
     margin-bottom: 5%;
-}
-a:visited{
-    color: rgba(26, 1, 165, 0.719);
 }
 h2{
     position: relative;
@@ -52,11 +56,17 @@ p.duracion
     bottom: 90px;
     font-size: 20px;
 }
-a{
+a.link{
     position: relative;
     left:80%;
     bottom: 120px;
     font-size: 20px;
+}
+a.link:visited{
+    color: rgba(26, 1, 165, 0.719);
+}
+a.atras:visited{
+    color: white;
 }
 img{
     width: 20%;

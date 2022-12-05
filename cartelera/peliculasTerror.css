@@ -7,6 +7,12 @@ body {
     background-size: cover;
 }
 
+h1{
+    color: red;
+    font-size: 50px;
+    padding-left: 2%;
+}
+
 div.pelicula{
     background-image: url('img/fondo8.jpg');
     background-size: cover;
@@ -19,9 +25,6 @@ div.pelicula{
     top: 10vh;
     left: 20%;
     margin-bottom: 5%;
-}
-a:visited{
-    color: rgba(124, 216, 3, 0.719);
 }
 h2{
     position: relative;
@@ -54,11 +57,17 @@ p.duracion
     bottom: 90px;
     font-size: 20px;
 }
-a{
+a.link{
     position: relative;
     left:80%;
     bottom: 120px;
     font-size: 20px;
+}
+a.link:visited{
+    color: rgba(124, 216, 3, 0.719);
+}
+a.atras:visited{
+    color: red;
 }
 img{
     width: 20%;

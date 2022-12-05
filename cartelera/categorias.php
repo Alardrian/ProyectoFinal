@@ -12,8 +12,8 @@
     <div id="contenedorCategorias">
         <h1>Cartelera</h1>
         <ul>
-            <a href="peliculas.php?categoria=terror"><li>Terror<img src="img/peniwais.jpg" alt=""></li></a>
-            <a href="peliculas.php?categoria=starwars"><li><img src="img/lloda.jpeg" alt="">Star wars</li></a>
+            <a href="peliculas.php?id_categoria=1"><li>Terror<img src="img/peniwais.jpg" alt=""></li></a>
+            <a href="peliculas.php?id_categoria=2"><li><img src="img/lloda.jpeg" alt="">Star wars</li></a>
         </ul>  
     </div>
 </body>
