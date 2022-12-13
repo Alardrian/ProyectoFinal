@@ -25,9 +25,3 @@ div.imagen, div.informacion{
     background-image: url('img/fondo6.jpg');
     background-size: cover;
 }
-
-div.imagen{
-    background-image: url('img/peniwais.jpg');
-    background-size: cover;
-    background-repeat: round;
-}

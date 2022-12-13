@@ -38,7 +38,7 @@ p.votos{
 h3.sinopsisTitulo{
     position: relative;
     left: 25%;
-    bottom: 100px;
+    bottom: 125px;
 }
 div.divSinopsisTexto{
     position: relative;
@@ -48,23 +48,24 @@ div.divSinopsisTexto{
 p.sinopsisTexto{
     position: relative;
     left: 25%;
-    bottom: 90px;
+    bottom: 110px;
 }
 p.duracion
 {
     position: relative;
     left: 2%;
-    bottom: 90px;
-    font-size: 20px;
+    bottom: 60px;
+    font-size: 25px;
 }
 a.link{
     position: relative;
     left:80%;
-    bottom: 120px;
+    bottom: 100px;
     font-size: 20px;
-}
-a.link:visited{
     color: rgba(124, 216, 3, 0.719);
+}
+a.link:hover{
+    color: rgb(255, 255, 255);
 }
 a.atras:visited{
     color: red;

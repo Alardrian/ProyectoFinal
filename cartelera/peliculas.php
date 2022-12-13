@@ -21,33 +21,6 @@
 <body>
 <h1><a class="atras" href="categorias.php"><span class="material-symbols-outlined">cottage</span></a></h1>
 
-<div class="pelicula">
-
-<h2>Titulo</h2>             <p class="votos">Votos: 0</p>
-<img src="img/peniwais.jpg" alt="">   <h3 class="sinopsisTitulo">Sinopsis</h3>
-<div class="divSinopsisTexto">
-    <p class="sinopsisTexto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptatum excepturi 
-        animi voluptatibus minus. Molestias, tempore et voluptate eveniet minus dicta blanditiis impedit rem totam sapiente 
-        corporis iste unde placeat modi odio quae ipsum eos? Delectus quibusdam voluptatibus aspernatur optio?</p>
-</div>
-<p class="duracion">Duración: minutos</p>           <a class="link" href="ficha.php?pelicula=peniwais">Ver ficha</a>
-
-</div>
-
-<div class="pelicula">
-
-<h2>Titulo</h2>             <p class="votos">Votos: 0</p>
-<img src="img/jason.jpeg" alt="">   <h3 class="sinopsisTitulo">Sinopsis</h3>
-<div class="divSinopsisTexto">
-    <p class="sinopsisTexto">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptatum excepturi 
-        animi voluptatibus minus. Molestias, tempore et voluptate eveniet minus dicta blanditiis impedit rem totam sapiente 
-        corporis iste unde placeat modi odio quae ipsum eos? Delectus quibusdam voluptatibus aspernatur optio?</p>
-</div>
-
-<p class="duracion">Duración: minutos</p>           <a class="link" href="ficha.php?pelicula=jason">Ver ficha</a>
-
-</div>
-
 <?php
     $conexion = mysqli_connect('localhost','root','12345');
     if (mysqli_connect_errno()){
@@ -79,9 +52,25 @@
                 $idCategoria = $registro['id_categoria'];
 
                 $pelicula = [$id, $titulo, $anyo, $duracion, $sinopsis, $imagen, $votos, $idCategoria];
+
+                pintarPelicula($pelicula);
+                
                 
             }
         }
+    }
+
+    function pintarPelicula($pelicula){
+        echo "<div class='pelicula'>
+
+        <h2>$pelicula[1]</h2>             <p class='votos'>Votos: 0</p>
+        <img src='$pelicula[5]' alt=''>   <h3 class='sinopsisTitulo'>Sinopsis</h3>
+        <div class='divSinopsisTexto'>
+            <p class='sinopsisTexto'>$pelicula[4]</p>
+        </div>
+        <p class='duracion'>Duración:$pelicula[3] minutos</p>           <a class='link' href='ficha.php?pelicula=$pelicula[0]'>Ver ficha</a>
+        
+        </div>";
     }
 ?>
 

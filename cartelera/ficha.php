@@ -5,18 +5,70 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha</title>
-    <link rel="stylesheet" href="ficha.css">
+    <?php
+    if ($_GET["pelicula"] > 0 && $_GET["pelicula"] < 6 ) {
+        $cssFile = "ficha.css";
+        echo "<link rel='stylesheet' href='" . $cssFile . "'>";
+    }
+    else if ($_GET["id_categoria"] == "2"){
+        $cssFile = "peliculasStarwars.css";
+        echo "<link rel='stylesheet' href='" . $cssFile . "'>";
+    }
+    ?>
 </head>
 <body> 
-    <div class="barraArriba">
-        <h1 class="titulo">Titulo</h1>
+    <?php
+    $conexion = mysqli_connect('localhost','root','12345');
+    if (mysqli_connect_errno()){
+        echo "Error al conectar a MySQL: " . mysqli_connect_error();
+    }
+    mysqli_select_db($conexion, 'peliculas');
+    $id_pelicula = $_GET['pelicula'];
+    $sanitized_pelicula = mysqli_real_escape_string($conexion, $id_pelicula);
+    $consulta = "SELECT * FROM T_Peliculas WHERE ID='" . $sanitized_pelicula."';";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    if (!$resultado){
+        $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
+        $mensaje .= 'Consulta realizada: ' . $consulta;
+        die($mensaje);
+    }
+    else{
+        if(($resultado->num_rows) > 0){
+
+            while ( $registro = mysqli_fetch_assoc($resultado)){
+
+                $id = $registro['ID'];
+                $titulo = $registro['titulo'];
+                $anyo = $registro['año'];
+                $duracion = $registro['duracion'];
+                $sinopsis = $registro['sinopsis'];
+                $imagen = $registro['imagen'];
+                $votos = $registro['votos'];
+                $idCategoria = $registro['id_categoria'];
+
+                $pelicula = [$id, $titulo, $anyo, $duracion, $sinopsis, $imagen, $votos, $idCategoria];
+
+                pintarPelicula($pelicula);
+                
+            }
+        }
+    }
+    function pintarPelicula($pelicula){
+        echo " <div class='barraArriba'>
+        <h1 class='titulo'>Titulo</h1>
     </div>
-    <div class="imagen">
-        
+    <div class='imagen'>
+        <img src='$pelicula[5]' alt=''>
     </div>
 
-    <div class="informacion">
-        
-    </div>
+    <div class='informacion'>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+             Asperiores quasi voluptatum deserunt necessitatibus reiciendis nisi! Quo illum provident odio minima?</p>
+    </div> ";
+    }
+
+    ?>
+
 </body>
 </html>
