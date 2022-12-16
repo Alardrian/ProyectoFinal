@@ -8,13 +8,49 @@
     <title>Categorias</title>
 </head>
 <body>
-    
-    <div id="contenedorCategorias">
-        <h1>Cartelera</h1>
+
+    <h1>Cartelera</h1>
+    <!-- <a href='peliculas.php?id_categoria=$categoria['><li><img src='img/lloda.jpeg' alt=''>Star wars</li></a> --> 
+    <?php
+
+    $conexion = mysqli_connect('localhost','root','12345');
+    if (mysqli_connect_errno()){
+        echo "Error al conectar a MySQL: " . mysqli_connect_error();
+    }
+    mysqli_select_db($conexion, 'peliculas');
+    $consulta = "SELECT * FROM T_Categorias;";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    if (!$resultado){
+        $mensaje = 'Consulta inválida: ' . mysqli_error($conexion) . "\n";
+        $mensaje .= 'Consulta realizada: ' . $consulta;
+        die($mensaje);
+    }
+    else{
+        if(($resultado->num_rows) > 0){
+
+            while ( $registro = mysqli_fetch_assoc($resultado)){
+
+                $id = $registro['ID'];
+                $nombre = $registro['nombre'];
+                $imagen = $registro['imagen'];
+
+                $categoria = [$id, $nombre, $imagen];
+
+                pintarCategorias($categoria);
+            }
+        }
+    }
+
+    function pintarCategorias($categoria){
+
+        echo "<div id='contenedorCategorias'>
         <ul>
-            <a href="peliculas.php?id_categoria=1"><li>Terror<img src="img/peniwais.jpg" alt=""></li></a>
-            <a href="peliculas.php?id_categoria=2"><li><img src="img/lloda.jpeg" alt="">Star wars</li></a>
+            <a href='peliculas.php?id_categoria=$categoria[0]&orden=1'><li>$categoria[1]</li><img src='$categoria[2]' alt=''></a>
         </ul>  
-    </div>
+        </div>";
+        
+    }
+?>
 </body>
 </html>

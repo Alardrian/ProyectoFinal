@@ -19,7 +19,25 @@
     ?>
 </head>
 <body>
-<h1><a class="atras" href="categorias.php"><span class="material-symbols-outlined">cottage</span></a></h1>
+<h1>
+    <a class="atras" href="categorias.php"><span class="material-symbols-outlined">cottage</span></a>
+
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=1">
+    <button type="button" class="boton">Predeterminado</button></a>
+
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=2">
+    <button type="button" class="boton">Ascendiente votos</button></a>
+
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=3">
+    <button type="button" class="boton">Descendiente votos</button></a>
+
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=4">
+    <button type="button" class="boton">Ascendiente alfabetico</button></a>
+
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=5">
+    <button type="button" class="boton">Descendiente alfabetico</button></a>
+    
+</h1>
 
 <?php
     $conexion = mysqli_connect('localhost','root','12345');
@@ -28,8 +46,10 @@
     }
     mysqli_select_db($conexion, 'peliculas');
     $id_categoria = $_GET['id_categoria'];
+    $orden = $_GET['orden'];
     $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
-    $consulta = "SELECT * FROM T_Peliculas WHERE id_categoria='" . $sanitized_categoria_id."';";
+    $sanitized_orden = mysqli_real_escape_string($conexion, $orden);
+    $consulta = "SELECT * FROM T_Peliculas WHERE id_categoria=" . $sanitized_categoria_id." ORDER BY ". $sanitized_orden .";";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){
@@ -54,8 +74,7 @@
                 $pelicula = [$id, $titulo, $anyo, $duracion, $sinopsis, $imagen, $votos, $idCategoria];
 
                 pintarPelicula($pelicula);
-                
-                
+                 
             }
         }
     }

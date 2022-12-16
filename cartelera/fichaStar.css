@@ -1,0 +1,43 @@
+*{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+div.barraArriba{
+    width: 100%;
+    height: 10vh;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: 5px 5px 5px rgb(0, 133, 194);
+    background-image: url('img/fondostarwars3.jpeg');
+    background-size: cover;
+    letter-spacing: 10px;
+}
+h1{
+    padding-top: 1%;
+    font-size: 50px;
+}
+
+div.imagen, div.informacion{
+    float: left;
+    border: 1px black solid;
+    width: 95.1vh;
+    height: 90vh;
+    background-image: url('img/fondostarwars3.jpeg');
+    background-size: cover;
+}
+div.anyoInfo,div.sinopsisInfo,div.repartoInfo,div.directoresInfo,div.duracionInfo{
+    text-indent: 15px;
+    padding: 1%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    letter-spacing: 3px;
+    font-variant: small-caps;
+    color: rgb(80, 245, 245);
+}
+
+img.imagen{
+    width: 100%;
+    height: 100%;
+}

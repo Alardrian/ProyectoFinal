@@ -49,6 +49,20 @@ p.sinopsisTexto{
     left: 25%;
     bottom: 110px;
 }
+a.botones{
+    padding-left: 80px;
+    padding-right: 50px;
+}
+.boton{
+    background-color: #555555;
+    border-color: 1px solid white;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
 p.duracion
 {
     position: relative;
@@ -60,8 +74,9 @@ a.link{
     position: relative;
     left:80%;
     bottom: 100px;
-    font-size: 20px;
+    font-size: 30px;
     color: rgba(38, 0, 255, 0.719);
+    text-decoration: none;
 }
 a.link:hover{
     color: rgb(255, 0, 0);

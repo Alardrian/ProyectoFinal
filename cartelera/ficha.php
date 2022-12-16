@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha</title>
     <?php
-    if ($_GET["pelicula"] > 0 && $_GET["pelicula"] < 6 ) {
-        $cssFile = "ficha.css";
+    if ($_GET["pelicula"] > 0 && $_GET["pelicula"] <= 5 ) {
+        $cssFile = "fichaTerror.css";
         echo "<link rel='stylesheet' href='" . $cssFile . "'>";
     }
-    else if ($_GET["id_categoria"] == "2"){
-        $cssFile = "peliculasStarwars.css";
+    else if ($_GET["pelicula"] > 5 && $_GET["pelicula"] <= 10 ) {
+        $cssFile = "fichaStar.css";
         echo "<link rel='stylesheet' href='" . $cssFile . "'>";
     }
     ?>
@@ -55,20 +55,29 @@
         }
     }
     function pintarPelicula($pelicula){
-        echo " <div class='barraArriba'>
-        <h1 class='titulo'>Titulo</h1>
+        echo "<div class='barraArriba'>
+        <h1 class='titulo'>$pelicula[1]</h1>
     </div>
     <div class='imagen'>
-        <img src='$pelicula[5]' alt=''>
+        <img class='imagen' src='$pelicula[5]' alt=''>
     </div>
 
     <div class='informacion'>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-             Asperiores quasi voluptatum deserunt necessitatibus reiciendis nisi! Quo illum provident odio minima?</p>
+        <div class='anyoInfo'> Año: $pelicula[2]</div>
+
+        <div class='repartoInfo'> Reparto: </div>
+
+        <div class='directoresInfo'> Directores: </div>
+
+        <div class='sinopsisInfo'> Sinopsis: $pelicula[4]</div>
+
+        <div class='duracionInfo'> Duracion: $pelicula[3] min</div>
     </div> ";
     }
 
     ?>
+
+    
 
 </body>
 </html>
