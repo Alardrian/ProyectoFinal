@@ -1,0 +1,56 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    background-image: url('img/fondopalomitas.jpg');
+    background-size: cover;
+  }
+
+div.imagen{
+    height: 100px;
+    width: 100px;
+    border: 1px solid white;
+}
+img{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+h1.texto{
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    color: rgb(218, 203, 203);
+    background-color: rgba(0, 0, 0, 0.788);
+    text-align: center;
+    font-size: 100px;
+    letter-spacing: 30px;
+    font-variant: small-caps;
+    text-shadow: 5px 4px 30px rgb(199, 52, 236);
+}
+h2.volver{
+    position: fixed;
+    width: 100%;
+    bottom: 0%;
+    color: rgb(218, 203, 203);
+    background-color: rgba(0, 0, 0, 0.788);
+    text-align: center;
+    font-size: 100px;
+    letter-spacing: 30px;
+    font-variant: small-caps;
+    text-shadow: 5px 4px 30px rgb(6, 122, 117);
+}
+h2.imagen{
+    position: fixed;
+    width: 100%;
+    top:12.4%;
+    color: rgb(218, 203, 203);
+    background-color: rgba(0, 0, 0, 0.788);
+    text-align: center;
+    font-size: 100px;
+    letter-spacing: 30px;
+    font-variant: small-caps;
+    text-shadow: 5px 4px 30px rgb(6, 122, 117);
+}
+

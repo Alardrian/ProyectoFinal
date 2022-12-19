@@ -40,7 +40,7 @@
 </h1>
 
 <?php
-    $conexion = mysqli_connect('localhost','root','1234');
+    $conexion = mysqli_connect('localhost','root','12345');
     if (mysqli_connect_errno()){
         echo "Error al conectar a MySQL: " . mysqli_connect_error();
     }
@@ -49,7 +49,7 @@
     $orden = $_GET['orden'];
     $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
     $sanitized_orden = mysqli_real_escape_string($conexion, $orden);
-    $consulta = "SELECT ID, titulo, año, duracion, sinopsis, imagen, votos, id_categoria FROM T_peliculas WHERE id_categoria=" . $sanitized_categoria_id." ORDER BY ". $sanitized_orden .";";
+    $consulta = "SELECT ID, titulo, año, duracion, sinopsis, imagen, votos, id_categoria FROM T_Peliculas WHERE id_categoria=" . $sanitized_categoria_id." ORDER BY ". $sanitized_orden .";";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){

@@ -19,14 +19,14 @@
 </head>
 <body> 
     <?php
-    $conexion = mysqli_connect('localhost','root','1234');
+    $conexion = mysqli_connect('localhost','root','12345');
     if (mysqli_connect_errno()){
         echo "Error al conectar a MySQL: " . mysqli_connect_error();
     }
     mysqli_select_db($conexion, 'peliculas');
     $id_pelicula = $_GET['pelicula'];
     $sanitized_pelicula = mysqli_real_escape_string($conexion, $id_pelicula);
-    $consulta = "SELECT * FROM T_peliculas WHERE ID='" . $sanitized_pelicula."';";
+    $consulta = "SELECT * FROM T_Ficha WHERE ID='" . $sanitized_pelicula."';";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){
@@ -45,10 +45,10 @@
                 $duracion = $registro['duracion'];
                 $sinopsis = $registro['sinopsis'];
                 $imagen = $registro['imagen'];
-                $votos = $registro['votos'];
-                $idCategoria = $registro['id_categoria'];
+                $directores = $registro['directores'];
+                $reparto = $registro['reparto'];
 
-                $pelicula = [$id, $titulo, $anyo, $duracion, $sinopsis, $imagen, $votos, $idCategoria];
+                $pelicula = [$id, $titulo, $anyo, $duracion, $sinopsis, $imagen, $directores, $reparto];
 
                 pintarPelicula($pelicula);
                 
@@ -67,17 +67,22 @@
     <div class='informacion'>
         <div class='anyoInfo'> Año: $pelicula[2]</div>
 
-        <div class='repartoInfo'> Reparto: </div>
+        <div class='repartoInfo'> Reparto: $pelicula[7] </div>
 
-        <div class='directoresInfo'> Directores: </div>
+        <div class='directoresInfo'> Directores: $pelicula[6] </div>
 
         <div class='sinopsisInfo'> Sinopsis: $pelicula[4]</div>
 
         <div class='duracionInfo'> Duracion: $pelicula[3] min</div>
 
         <div class='votarInfo'> Votar:
-        <a class='voto' href='voto.php'> <span class='material-symbols-outlined'>recommend</span> </a>
+
+        <form name='votar' action='voto.php' method='POST'>
+        <input type='radio' name='idpelicula' value='$pelicula[0]' checked='false' /> <span class='material-symbols-outlined'>recommend</span>
+        <input type='submit' name='submit' value='vota!' />
+        </form>
         </div>
+
     </div> ";
     }
 

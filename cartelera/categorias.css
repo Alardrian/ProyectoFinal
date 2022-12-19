@@ -41,4 +41,7 @@ h1{
     font-variant: small-caps;
     text-shadow: 5px 4px 30px rgb(239, 243, 0);
 }
+a{
+    text-decoration: none;
+}
 

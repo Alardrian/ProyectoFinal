@@ -13,12 +13,12 @@
     <!-- <a href='peliculas.php?id_categoria=$categoria['><li><img src='img/lloda.jpeg' alt=''>Star wars</li></a> --> 
     <?php
 
-    $conexion = mysqli_connect('localhost','root','1234');
+    $conexion = mysqli_connect('localhost','root','12345');
     if (mysqli_connect_errno()){
         echo "Error al conectar a MySQL: " . mysqli_connect_error();
     }
     mysqli_select_db($conexion, 'peliculas');
-    $consulta = "SELECT ID, nombre, imagen FROM T_categorias;";
+    $consulta = "SELECT ID, nombre, imagen FROM T_Categorias;";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){
