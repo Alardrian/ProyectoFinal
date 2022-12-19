@@ -22,25 +22,25 @@
 <h1>
     <a class="atras" href="categorias.php"><span class="material-symbols-outlined">cottage</span></a>
 
-    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=1">
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=ID">
     <button type="button" class="boton">Predeterminado</button></a>
 
-    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=2">
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=votos">
     <button type="button" class="boton">Ascendiente votos</button></a>
 
-    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=3">
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=votos DESC">
     <button type="button" class="boton">Descendiente votos</button></a>
 
-    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=4">
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=titulo">
     <button type="button" class="boton">Ascendiente alfabetico</button></a>
 
-    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=5">
+    <a class="botones" href="peliculas.php?id_categoria=<?php echo $_GET["id_categoria"] ?>&orden=titulo DESC">
     <button type="button" class="boton">Descendiente alfabetico</button></a>
     
 </h1>
 
 <?php
-    $conexion = mysqli_connect('localhost','root','12345');
+    $conexion = mysqli_connect('localhost','root','1234');
     if (mysqli_connect_errno()){
         echo "Error al conectar a MySQL: " . mysqli_connect_error();
     }
@@ -49,7 +49,7 @@
     $orden = $_GET['orden'];
     $sanitized_categoria_id = mysqli_real_escape_string($conexion, $id_categoria);
     $sanitized_orden = mysqli_real_escape_string($conexion, $orden);
-    $consulta = "SELECT * FROM T_Peliculas WHERE id_categoria=" . $sanitized_categoria_id." ORDER BY ". $sanitized_orden .";";
+    $consulta = "SELECT ID, titulo, año, duracion, sinopsis, imagen, votos, id_categoria FROM T_peliculas WHERE id_categoria=" . $sanitized_categoria_id." ORDER BY ". $sanitized_orden .";";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){
@@ -77,12 +77,17 @@
                  
             }
         }
+        else {
+            echo "<div class='pelicula'>
+            <h3 class='noPelis'>No hay peliculas aun</h3>
+            </div>";
+        }
     }
 
     function pintarPelicula($pelicula){
         echo "<div class='pelicula'>
 
-        <h2>$pelicula[1]</h2>             <p class='votos'>Votos: 0</p>
+        <h2>$pelicula[1]</h2>             <p class='votos'>Votos: $pelicula[6]</p>
         <img src='$pelicula[5]' alt=''>   <h3 class='sinopsisTitulo'>Sinopsis</h3>
         <div class='divSinopsisTexto'>
             <p class='sinopsisTexto'>$pelicula[4]</p>

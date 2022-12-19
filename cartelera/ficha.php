@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
     <title>Ficha</title>
     <?php
     if ($_GET["pelicula"] > 0 && $_GET["pelicula"] <= 5 ) {
@@ -18,14 +19,14 @@
 </head>
 <body> 
     <?php
-    $conexion = mysqli_connect('localhost','root','12345');
+    $conexion = mysqli_connect('localhost','root','1234');
     if (mysqli_connect_errno()){
         echo "Error al conectar a MySQL: " . mysqli_connect_error();
     }
     mysqli_select_db($conexion, 'peliculas');
     $id_pelicula = $_GET['pelicula'];
     $sanitized_pelicula = mysqli_real_escape_string($conexion, $id_pelicula);
-    $consulta = "SELECT * FROM T_Peliculas WHERE ID='" . $sanitized_pelicula."';";
+    $consulta = "SELECT * FROM T_peliculas WHERE ID='" . $sanitized_pelicula."';";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){
@@ -53,10 +54,11 @@
                 
             }
         }
+       
     }
     function pintarPelicula($pelicula){
         echo "<div class='barraArriba'>
-        <h1 class='titulo'>$pelicula[1]</h1>
+        <h1 class='titulo'><a class='atras' href='categorias.php'><span class='material-symbols-outlined'>cottage</span></a> $pelicula[1]</h1>
     </div>
     <div class='imagen'>
         <img class='imagen' src='$pelicula[5]' alt=''>
@@ -72,6 +74,10 @@
         <div class='sinopsisInfo'> Sinopsis: $pelicula[4]</div>
 
         <div class='duracionInfo'> Duracion: $pelicula[3] min</div>
+
+        <div class='votarInfo'> Votar:
+        <a class='voto' href='voto.php'> <span class='material-symbols-outlined'>recommend</span> </a>
+        </div>
     </div> ";
     }
 

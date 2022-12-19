@@ -1,6 +1,7 @@
 *{
     padding: 0px;
     margin: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 body {
     background-image: url('img/fondostarwars2.jpg');
@@ -11,6 +12,11 @@ h1{
     color: red;
     font-size: 50px;
     padding-left: 2%;
+}
+h3.noPelis{
+    text-align: center;
+    font-size: 80px;
+    padding-top: 6%;
 }
 
 div.pelicula{
@@ -54,9 +60,9 @@ a.botones{
     padding-right: 50px;
 }
 .boton{
-    background-color: #555555;
+    background-color: #ffffff;
     border-color: 1px solid white;
-    color: white;
+    color: rgb(104, 104, 104);
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
