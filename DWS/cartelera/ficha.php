@@ -26,7 +26,7 @@
     mysqli_select_db($conexion, 'peliculas');
     $id_pelicula = $_GET['pelicula'];
     $sanitized_pelicula = mysqli_real_escape_string($conexion, $id_pelicula);
-    $consulta = "SELECT * FROM T_Ficha WHERE ID='" . $sanitized_pelicula."';";
+    $consulta = "SELECT ID,titulo,año,duracion,sinopsis,imagen,directores,reparto FROM T_Ficha WHERE ID='" . $sanitized_pelicula."';";
     $resultado = mysqli_query($conexion, $consulta);
 
     if (!$resultado){

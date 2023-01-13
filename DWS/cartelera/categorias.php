@@ -9,8 +9,7 @@
 </head>
 <body>
 
-    <h1>Cartelera</h1>
-    <!-- <a href='peliculas.php?id_categoria=$categoria['><li><img src='img/lloda.jpeg' alt=''>Star wars</li></a> --> 
+    <h1>Cartelera</h1> 
     <?php
 
     $conexion = mysqli_connect('localhost','root','12345');
