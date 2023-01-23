@@ -7,7 +7,7 @@
 <body>
     <h1> Listado de torneos </h1>
     <?php
-        require("torneosReglasNegocio.php");
+        require("../negocio/torneosReglasNegocio.php");
 
         $torneosBL = new TorneosReglasNegocio();
         $datosTorneos = $torneosBL->obtener();
@@ -16,6 +16,8 @@
         {
             echo "<div>";
             print($torneo->getID());
+            print($torneo->getNombre());
+            print($torneo->getNumJugadores());
             echo "</div>";
         }
     ?>
