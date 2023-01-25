@@ -2,7 +2,7 @@
 
 // AQUI NO VAN NI SELECTS DE BASE DATOS NI HTML.
 
-require("../infraestructura/torneosAccesoDatos.php");
+require("../accesoDatos/torneosAccesoDatos.php");
 
 class TorneosReglasNegocio
 {
