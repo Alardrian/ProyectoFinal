@@ -6,7 +6,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $usuarioBL = new UsuarioReglasNegocio();
     $perfil = $usuarioBL->verificar($_POST['usuario'], $_POST['clave']);
 
-    if ($perfil === "administrador" || $perfil === "jugador") {
+    if ($perfil === "administrador") {
+        session_start(); //inicia o reinicia una sesión
+        $_SESSION['usuario'] = $_POST['usuario'];
+        header("Location: torneosVista.php");
+    }else if($perfil === "jugador"){
         session_start(); //inicia o reinicia una sesión
         $_SESSION['usuario'] = $_POST['usuario'];
         header("Location: torneosVista.php");
