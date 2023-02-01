@@ -5,7 +5,7 @@ require("accesoDatos/usuarioAccesoDatos.php");
 function test_alta_usuario()
 {
     $u = new UsuarioAccesoDatos();
-    return $u->insertar('alex','jugador','passwordalex');
+    return $u->insertar('pablojacinto','jugador','12345');
 }
 
 function test_verificar_usuario_encontrado()

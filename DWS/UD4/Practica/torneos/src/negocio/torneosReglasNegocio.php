@@ -9,16 +9,18 @@ class TorneosReglasNegocio
     private $_ID;
     private $_nombre;
     private $_num_jugadores;
+    private $_date;
 
 	function __construct()
     {
     }
 
-    function init($id,$nombre,$num_jugadores)
+    function init($id,$nombre,$num_jugadores,$_date)
     {
         $this->_ID = $id;
         $this->_nombre = $nombre;
         $this->_num_jugadores = $num_jugadores;
+        $this->_date;
     }
 
     function getID()
@@ -34,6 +36,11 @@ class TorneosReglasNegocio
     function getNumJugadores()
     {
         return $this->_num_jugadores;
+    }
+    
+    function getDate()
+    {
+        return $this->_date;
     }
 
     function obtener()

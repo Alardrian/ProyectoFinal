@@ -11,16 +11,21 @@
     margin-left: 40%;
     margin-top: 20%;
 }
-p{
+label{
     font-size: 18px;
     padding: 10px;
 }
-pre{
-    font-size: 17.5px;
-    padding: 10px;
+input{
+    margin-top: 15px;
 }
-.enviar{
-    font-size: 20px;
+.textos{
+    padding-top: 5%;
+}
+#usuario{
+    margin-left: 23px;
+}
+#enviar{
+    font-size: 18px;
     margin-left: 280px;
     margin-top: 10px;
 }
