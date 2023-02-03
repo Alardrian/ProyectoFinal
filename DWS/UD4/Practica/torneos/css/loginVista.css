@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.contenedor{
+    border: 1px solid black;
+    height: 130px;
+    width: 350px;
+    background-color: rgba(0, 255, 255, 0.363);
+    margin-left: 40%;
+    margin-top: 20%;
+}
+label{
+    font-size: 18px;
+    padding: 10px;
+}
+input{
+    margin-top: 15px;
+}
+.textos{
+    padding-top: 5%;
+}
+#usuario{
+    margin-left: 23px;
+}
+#enviar{
+    font-size: 18px;
+    margin-left: 280px;
+    margin-top: 10px;
+}

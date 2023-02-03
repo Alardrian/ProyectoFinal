@@ -1,6 +1,7 @@
 *{
     padding: 0px;
     margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body {
     background-image: url('img/fondo7.jpg');
@@ -11,6 +12,11 @@ h1{
     color: rgb(255, 0, 0);
     font-size: 50px;
     padding-left: 2%;
+}
+h3.noPelis{
+    text-align: center;
+    font-size: 70px;
+    padding-top: 6%;
 }
 
 div.pelicula{
