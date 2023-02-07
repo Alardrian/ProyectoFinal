@@ -1,9 +1,17 @@
+body{
+    background-color: #2d2b3c;
+}
 #container { 
     width: 800px; 
     height: 600px; 
     float: left; 
     margin-left: 30%;
     margin-top: 10%;
+}
+h1{
+    text-align: center;
+    color: wheat;
+    margin-top: 1%;
 }
 
 section { 

@@ -1,0 +1,59 @@
+*{
+    position: relative;
+    margin:0%;
+    padding: 0%;
+}
+body{
+    background-color: #080710;
+}
+.usuario{
+    font-size: 50px;
+    background-color: aquamarine;
+    text-align: center;
+}
+.usuario a{
+    text-decoration: none;
+    border: 1px solid black;
+    background-color: azure;
+    border-radius: 15px;
+}
+table{
+    margin-left: 15%;
+    margin-top: 10%;
+    border: 4px solid black;
+    font-size: 30px;
+    text-align: center;
+}
+.crear{
+    margin-left: 70%;
+    font-size: 30px;
+    top: 230px;
+    color: white;
+}
+.registros{
+    position: relative;
+    top: 225px;
+    left: 300px;
+    font-size: 30px;
+    color: white;
+}
+caption{
+    color: white;
+}
+.crear a{
+    text-decoration: none;
+}
+td{
+    padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+th{
+    background-color: rgb(85, 182, 243);
+}
+tbody tr:nth-child(even){
+    background-color:#90a2ae;
+}
+tbody tr:nth-child(odd){
+    background-color:#e0f0fa;
+}
