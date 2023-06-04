@@ -102,87 +102,29 @@
          </div>
       </div>
       <?php echo "<div class='usuario'>Bienvenido: " . $_SESSION['usuario'] . " <br><a href='logOutVista.php'> Cerrar sesion </a></div>"; ?>
-      <form>
-         Introduce el coche que buscas: <input type="text" id="texto">
-      </form>
-
-      <p><span id="txtHint"></span></p>
-      <h2>Alquiler de Coches</h2>
-      <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-         <label>Fecha de Inicio:</label>
-         <input type="date" name="fecha_inicio" required><br>
-
-         <label>Fecha de Fin:</label>
-         <input type="date" name="fecha_fin" required><br>
-
-         <label>Tipo de Vehículo:</label>
-         <select name="tipo_vehiculo" required>
-            <option value="1">Compacto</option>
-            <option value="2">SUV</option>
-            <option value="3">Furgonetas</option>
-         </select><br>
-         <label>Tipo de seguro:</label>
-         <select name="tipo_seguro" required>
-            <option value="allin">Todo riesgo</option>
-            <option value="deposito">Depósito</option>
-         </select><br>
-
-         <input type="submit" name="submit" value="Buscar ofertas">
-      </form>
       <?php
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
          require_once("../Negocio/ShopReglasNegocio.php");
          $shopBL = new ShopReglasNegocio();
-         $datosCoches = $shopBL->obtenerCoches($_POST['tipo_vehiculo']);
-         if (count($shopBL->obtenerCoches($_POST['tipo_vehiculo'])) > 0) {
-            echo "
-            <div id='contenedor'>
-                    </div>
-                    <div>
-                        <table>
-                            <thead>
-                                 <tr>
-                                    <th>ID</th>
-                                    <th>Tipo</th>
-                                    <th>Marca</th>
-                                    <th>Modelo</th>
-                                    <th>Año</th>
-                                    <th>Capacidad</th>
-                                    <th>Precio diario</th>
-                                </tr>
-                            </thead>
-                            <tbody>";
-         }
+         $insertarReserva = $shopBL->insertarReserva($_POST['nombreUsuario'], $_POST['id_vehiculo'], $_POST['fecha_inicio'], $_POST['fecha_fin'], $_POST['costo_diario']);
+         // pillamos la diferencia de dias entre fecha inicio y fecha fin
+         $formato = "Y-m-d";
+         $fechaString = $_POST['fecha_inicio'];
+         $fecha = DateTime::createFromFormat($formato, $fechaString);
+
+         $fechaString2 = $_POST['fecha_fin'];
+         $fecha2 = DateTime::createFromFormat($formato, $fechaString2);
+
+         $fechadiff = $fecha->diff($fecha2);
+         $diffDias = $fechadiff->d;
+
+         $insertarFactura = $shopBL->insertarFactura($_POST['costo_diario'], $diffDias);
+
+         
 
       }
-      foreach ($datosCoches as $coches) {
-         echo "
-                <tr>
-                    <td>" . $coches->getIDVehiculo() . "</td>
-                    <td>" . $coches->getIDTipo_de_vehiculo() . "</td>
-                    <td>" . $coches->getMarca() . "</td>
-                    <td>" . $coches->getModelo() . "</td>
-                    <td>" . $coches->getAnio() . "</td>
-                    <td>" . $coches->getCapacidad() . " pax</td>
-                    <td>" . $coches->getPrecio() . "</td>
-                    <td>
-                  <form method='POST' action='reserva.php'>
-                     <input type='hidden' name='nombreUsuario' value='".$_SESSION['usuario'] ."'>
-                     <input type='hidden' name='id_vehiculo' value='".$coches->getIDVehiculo() ."'>
-                     <input type='hidden' name='fecha_inicio' value='".$_POST['fecha_inicio']."'>
-                     <input type='hidden' name='fecha_fin' value='".$_POST['fecha_fin']."'>
-                     <input type='hidden' name='costo_diario' value='".$coches->getPrecio()."'>
-                     <input type='hidden' name='seguro' value='".$_POST['tipo_seguro']."'>
-                     <input type='submit' name='submit' value='Reservar'>
-                  </form>
-</td>
-                </tr>";
-      }
-      echo "</tbody>
-                </table>
-                    </div>
-                </div>
-            </div>";
+      echo " <p>La reserva se ha confirmado para el usuario " . $_SESSION['usuario'] . "</p>";
+      echo " los dias de diferencia son: " . $diffDias . "";
       ?>
 
 

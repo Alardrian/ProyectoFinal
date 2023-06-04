@@ -13,7 +13,6 @@
         } else{
             $error = true;
         }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -25,7 +24,7 @@
     <link rel="stylesheet" href="../../css/loginVista.css">
 </head>
 <body>
-    
+
     <form method = "POST" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <h3>Login Here</h3>
         <label for="username">Username</label>
@@ -36,5 +35,7 @@
 
         <input id = "button" type = "submit">
     </form>
+
+    <p>No account? sign up <a href="register.php">here</a></p>
 </body>
 </html>
